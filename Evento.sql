@@ -76,5 +76,46 @@ statusaprov boolean not null,
 tipoevento varchar (110) not null,
 material_nescessario varchar (100) not null
 );
+-------------------------------------------------
+create table participa_evento (
+id int (10) not null primary key auto_increment,
+id_usuario int (10) not null,
+id_eventos int (10) not null,
+
+CONSTRAINT fk_usuario 
+	FOREIGN KEY (id_usuario)
+    REFERENCES usuario (id),
+CONSTRAINT fk_eventos
+	FOREIGN KEY (id_eventos)
+    REFERENCES eventos (id)
+);
+------------------------------------------------
+create table pagamento(
+id int (10) not null primary key auto_increment,
+id_C_Credito int (10) not null,
+id_boleto int(10) not null,
+CONSTRAINT fk_C_Credito 
+	FOREIGN KEY (id_C_Credito)
+    REFERENCES C_Credito (id),
+CONSTRAINT fk_boleto
+	FOREIGN KEY (id_boleto)
+    REFERENCES boleto (id)
+);
+-------------------------------------------------
+create table participa_pagamento (
+id_participa_evento int (10) not null,
+id_pagamento int(10) not null,
+CONSTRAINT fk_participa_evento 
+	FOREIGN KEY (id_participa_evento)
+    REFERENCES participa_evento (id),
+CONSTRAINT fk_pagamento
+	FOREIGN KEY (id_pagamento)
+    REFERENCES pagamento (id),
+primary key (id_participa_evento,id_pagamento)
+);
+--------------------------------------------------
+
+
+
 
 
