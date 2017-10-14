@@ -114,6 +114,20 @@ CONSTRAINT fk_pagamento
 primary key (id_participa_evento,id_pagamento)
 );
 --------------------------------------------------
+create table patrocina (
+id_usuario int(10) not null,
+id_eventos int(10) not null,
+CONSTRAINT fk_usuario
+	FOREIGN KEY (id_usuario)
+    REFERENCES usuario (id),
+CONSTRAINT fk_eventos 
+	FOREIGN KEY (id_eventos)
+    REFERENCES eventos (id),
+primary key (id_usuario,id_eventos)
+);
+---------------------------------------------------
+    
+
 
 
 
