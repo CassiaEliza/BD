@@ -6,7 +6,15 @@ use Evento;
 create table usuario (
 id int(10) not null primary key auto_increment,
 login varchar(50) not null , 
-senha varchar (60) not null
+senha varchar (60) not null,
+id_P_Fisica int (10) not null,
+id_P_Juri int (10) not null,
+CONSTRAINT fk_P_Fisica 
+	FOREIGN KEY (id_P_Fisica)
+    REFERENCES P_Fisica (id),
+CONSTRAINT fk_P_Juri
+	FOREIGN KEY (id_P_Juri)
+    REFERENCES P_Juri (id)
 );
 ---------------------------------------------
 create table P_Fisica (
