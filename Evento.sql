@@ -66,3 +66,15 @@ codigobarra int(100) not null,
 vencimento date not null
 );
 --------------------------------------------------
+create table eventos (
+id int(10) not null primary key auto_increment,
+nome varchar (200) not null,
+dataevento date not null,
+num_vagas int (200) not null,
+valoringresso float (60) not null,
+statusaprov boolean not null,
+tipoevento varchar (110) not null,
+material_nescessario varchar (100) not null
+);
+
+
